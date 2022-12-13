@@ -1,0 +1,64 @@
+<header>
+  <nav class="navegacion" [ngClass]="{'navLight': !dark, 'navDark': dark}">
+    <div class="contenedor-nav">
+      <div class="margen"></div>
+      <div class="enlaces">
+        <a [routerLink]="['/sobre-mi']" [routerLinkActive]="['actived']">Sobre mi</a>
+        <a [routerLink]="['/proyectos']" [routerLinkActive]="['actived']">Proyectos</a>
+        <div class="logo">
+          <a href="#">AAC</a>
+        </div>
+        <a [routerLink]="['/crear-proyecto']" [routerLinkActive]="['actived']">Nuevo Proyecto</a>
+        <a [routerLink]="['/contacto']" [routerLinkActive]="['actived']">Contacto</a>
+      </div>
+      
+      <div class="mode" (click)="darkMode()">
+        <div [ngClass]="{'figuraLight': dark, 'figuraDark': !dark}">
+          <div [ngClass]="{'indicadorLight': dark, 'indicadorDark': !dark}"></div>
+          <img [ngClass]="{'solLight': dark, 'solDark': !dark}" src="../assets/img/sol.png" alt="sol">
+          <img [ngClass]="{'lunaDark': dark, 'lunaLight': !dark}" src="../assets/img/luna.png" alt="luna">
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<section class="content" [ngClass]="{'contentLight': !dark, 'contentDark': dark}">
+  <router-outlet></router-outlet>
+</section>
+
+<footer>
+  <div class="pie" [ngClass]="{'pieLight': !dark, 'pieDark': dark}">
+    <div class="pie_contenedores">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <rect x="4" y="4" width="16" height="16" rx="4" />
+            <circle cx="12" cy="12" r="3" />
+            <line x1="16.5" y1="7.5" x2="16.5" y2="7.501" />
+        </svg>
+        <p>Seguime en <a href="" target="_blank">Instagram</a></p>
+    </div>
+
+    <div class="pie_contenedores">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-file-code" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+            <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+            <path d="M10 13l-1 2l1 2" />
+            <path d="M14 13l1 2l-1 2" />
+        </svg>
+        <p>Developer Web - <span>Agustin Alonso Cantoli</span></p>
+    </div>
+
+        
+    <div class="pie_contenedores">        
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="28" height="28" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <circle cx="12" cy="12" r="9" />
+            <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+        </svg>
+        <p>Copyright - Todos los derechos reservados &copy;</p>
+    </div>
+
+  </div>
+</footer>

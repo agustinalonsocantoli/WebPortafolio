@@ -1,0 +1,57 @@
+<h2 class="titleCreate">{{title}}</h2>
+
+<div class="contenedor">
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+        <div class="entradaText">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="project.name" required>
+        </div>
+
+        <div class="entradaText">
+            <label for="category">Categoria</label>
+            <input type="text" name="category" #category="ngModel" [(ngModel)]="project.category" required>
+        </div>
+
+        <div class="entradaText">
+            <label for="langs">Lenguaje</label>
+            <input type="text" name="langs" #langs="ngModel" [(ngModel)]="project.langs" required>
+        </div>
+
+        <div class="entradaText">
+            <label for="year">Año</label>
+            <input type="number" name="year" #name="ngModel" [(ngModel)]="project.year">
+        </div>
+
+        <div class="entradaText">
+            <label for="description">Descripcion</label>
+            <textarea name="description" #description="ngModel" [(ngModel)]="project.description" required></textarea>
+        </div>
+
+        <div class="entradaImg">
+            <label for="image">Imagen</label>
+            <input type="file" name="image" placeholder="Subir Imagen" (change)="fileChangeEvent($event)">
+        </div>
+
+        <div class="btnContenedor">
+            <input type="submit" value="Enviar" class="btnCrear" [disabled]="!projectForm.form.valid">
+
+            <span class="messageOk" *ngIf="status == 'success'">
+            El proyecto se ha creado exitosamente, puedes verlo <a [routerLink]="['/proyecto', saveNewProject._id]">aqui</a>.
+            </span>
+
+            <span class="messageErr" *ngIf="status == 'failed'">
+                El proyecto no se ha podido crear.
+            </span>
+        </div>
+        
+    </form>
+
+    <div class="contenedorValidate">
+        <span *ngIf="name.touched && !name.valid">*Debe completar el Nombre</span>
+        <span *ngIf="category.touched && !category.valid">*Debe indicar una Categoria</span>
+        <span *ngIf="langs.touched && !langs.valid">*Debe indicar el Lenguaje utilizado</span>
+        <span *ngIf="description.touched && !description.valid">*Debe agregar una Descripcion</span>
+    </div>
+</div>
+
+

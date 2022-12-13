@@ -1,0 +1,25 @@
+<div class="contenedorDetalle" *ngIf="project">
+
+    <h2>{{project.name}}</h2>
+
+    <img src="{{url + 'get-image/' + project.image}}" alt="imagenPoryecto" *ngIf="project.image">
+
+    <div class="detalles">
+        <p>Tipo de proyecto: {{project.category}}</p>
+        <p>Lenguaje utilizado: {{project.langs}}</p>
+        <p>
+            Para visualizarlo en GitHub presione el enlace: 
+            <a href="{{project.description}}" class="link" target="_blank">{{project.description}}</a>
+        </p>
+        <div class="contenedorBotones" *ngIf="confirm == false">
+            <a [routerLink]="['/editar-proyecto', project._id]" class="btnEdit">Editar</a>
+            <a (click)="deleteConfirm()" class="btnDelete">Borrar</a>
+        </div>
+
+        <div class="contenedorBotones" *ngIf="confirm == true">
+            <a (click)="deleteCancel()" class="btnEdit cancel">Cancelar</a>
+            <a (click)="deleteProject(project._id)" class="btnDelete confirm">Confirmar Eliminacion</a>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,54 @@
+<h2 class="titleContacto">{{title}}</h2>
+
+<div class="contenedorContacto">
+    <form>
+        <div class="entradasCont">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" required>
+        </div>
+        
+        <div class="entradasCont">
+            <label for="email">E-Mail</label>
+            <input type="email" name="email" required>
+        </div>
+        
+        <div class="entradasCont">
+            <label for="tel">Teléfono</label>
+            <input type="tel" name="tel" required>
+        </div>
+        
+        <div class="entradasCont">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        
+        <h3>Como desea ser contactado</h3>
+    
+        <div class="opcionesCont">
+            <div class="opciones">
+                <label for="contactarTel">Teléfono</label>
+                <input name="contacto" type="radio" value="contactarTel" (click)="setContacto('tel', true)">
+            </div>
+
+            <div class="opciones">
+                <label for="contactarEmail">E-Mail</label>
+                <input name="contacto" type="radio" value="contactarEmail" (click)="setContacto('email', false)">
+            </div>
+        </div>
+    
+        <p class="telMsj" *ngIf="contacto == 'tel'">* Si elegio teléfono, elija la fecha y la hora para ser contactado</p>
+        <p class="emailMsj" *ngIf="contacto == 'email'">* Si elegio email no es necesario fecha y hora</p>
+    
+        <div class="contenedorFechaHora">
+            <label for="date">Fecha</label>
+            <input type="date" name="date" id="fecha" [disabled]="fechaHora == false">
+        
+            <label for="time">Hora</label>
+            <input type="time" name="time" min="09:00" max="20:00" [disabled]="fechaHora == false">
+        </div>
+        
+        <div class="contenedorBtnCont">
+            <input class="btnContacto" type="submit" value="Enviar">
+        </div>
+    </form>
+</div>
