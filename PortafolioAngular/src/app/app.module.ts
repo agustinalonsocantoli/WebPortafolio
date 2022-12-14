@@ -22,7 +22,7 @@ import { EditComponent } from './components/edit/edit.component';
     ContacComponent,
     ErrorComponent,
     DetailComponent,
-    EditComponent
+    EditComponent,
   ],
   imports: [
     BrowserModule,
